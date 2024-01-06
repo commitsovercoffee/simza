@@ -40,15 +40,29 @@
 <section>
 	{#if index < pages.length}
 		<Prompt title={pages[index].title} prompt={pages[index].prompt}>
-			<button
-				class="m-4 p-2 px-8 border-2 border-black rounded-xl hover:bg-black hover:text-white text-black active:translate-y-1 delay-50 ease-in duration-200"
-				on:click={() => {
-					index = index + 1;
-				}}
-				aria-label={`Navigate to ${pages[index + 1]?.title || 'end of pages'}`}
-			>
-				{pages[index].button}
-			</button>
+			<div class="flex">
+				{#if index > 0}
+					<button
+						class="m-4 p-2 px-8 border-2 border-black rounded-xl hover:bg-black hover:text-white text-black active:translate-y-1 delay-50 ease-in duration-200"
+						on:click={() => {
+							index = index - 1;
+						}}
+						aria-label={`Navigate to ${pages[index + 1]?.title || 'end of pages'}`}
+					>
+						Back
+					</button>
+				{/if}
+
+				<button
+					class="m-4 p-2 px-8 border-2 border-black rounded-xl hover:bg-black hover:text-white text-black active:translate-y-1 delay-50 ease-in duration-200"
+					on:click={() => {
+						index = index + 1;
+					}}
+					aria-label={`Navigate to ${pages[index + 1]?.title || 'end of pages'}`}
+				>
+					{pages[index].button}
+				</button>
+			</div>
 		</Prompt>
 	{:else}
 		<p>Card Deck</p>

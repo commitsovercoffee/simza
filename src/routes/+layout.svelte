@@ -5,6 +5,6 @@
 	import '@fontsource-variable/caveat';
 </script>
 
-<main class="m-auto p-2 prose bg-red-200">
+<main class="mx-auto p-2 prose bg-red-200">
 	<slot />
 </main>

@@ -3,16 +3,16 @@
 
 	import Stage from '$lib/components/Stage.svelte';
 	import Prompt from '$lib/components/Prompt.svelte';
+	import Deck from '$lib/components/Deck.svelte';
 </script>
 
 <Stage>
 	{#if $index < 5}
 		<Prompt />
 	{:else}
-		<p>
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum natus dolores atque, optio
-			suscipit necessitatibus alias cum dolorem? Odio, tempora laborum? Vero incidunt dolore
-			suscipit sunt ex ipsa animi cupiditate.
-		</p>
+		<div class="flex justify-center items-center relative">
+			<!-- Card Deck -->
+			<Deck />
+		</div>
 	{/if}
 </Stage>

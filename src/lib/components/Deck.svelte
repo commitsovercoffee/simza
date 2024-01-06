@@ -1,6 +1,7 @@
 <script>
+	import { tarots } from './content.js';
 	const cardStyle =
-		'absolute rounded p-2 m-2 w-12 h-18 border border-slate-600 bg-gray-200 shadow transition-transform duration-200 ease-in delay-50 ';
+		'absolute rounded p-2 m-2 w-24 h-32 border border-slate-600 bg-gray-200 shadow transition-transform duration-200 ease-in delay-50 ';
 
 	let cards = Array.from({ length: 78 }, (_, i) => i + 1);
 	let selected = Array(3).fill(-1);
@@ -35,11 +36,11 @@
 		}}
 		style="left:{index * 6.5}px; top:20px"
 		class={selected.includes(index)
-			? cardStyle + ' bg-red-600 translate-y-32'
+			? cardStyle + ' bg-red-600 translate-y-40'
 			: chances > 0
 				? cardStyle + ' hover:translate-y-8 '
 				: cardStyle}
 	>
-		<p>{card}</p>
+		<p class="text-xs">{tarots[index].Name}</p>
 	</button>
 {/each}

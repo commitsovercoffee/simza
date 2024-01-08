@@ -1,60 +1,47 @@
 <script>
-	// More concise and clear state handling
-	let isFlipped = false;
-
-	// Flip transition as a reusable function
-	function flipTransition(node, { delay = 0, duration = 500 } = {}) {
-		return {
-			delay,
-			duration,
-			css: (t, u) => `
-                transform: rotateY(${180 * u}deg);
-                opacity: ${1 - u};
-            `
-		};
-	}
+	export let label = 'Card Name';
+	import { fade } from 'svelte/transition';
 </script>
 
-<div class="card-container" on:click={() => (isFlipped = !isFlipped)}>
-	<div class="card">
-		{#if isFlipped}
-			<div class="side" transition:flipTransition>Side A</div>
-		{:else}
-			<div class="side back" transition:flipTransition>Side B</div>
-		{/if}
+<div transition:fade class="flip-card w-28 h-32 p-2 m-2">
+	<div class="flip-card-inner w-28 h-32">
+		<div class="flip-card-front"></div>
+		<div class="flip-card-back">
+			<p>{label}</p>
+		</div>
 	</div>
 </div>
 
 <style>
-	.card-container {
+	.flip-card-inner {
 		position: relative;
-		height: 400px;
-		width: 600px;
-		cursor: pointer; /* Indicates the element is clickable */
-	}
-
-	.card {
 		width: 100%;
 		height: 100%;
-		position: absolute;
-		perspective: 600px; /* Added 'px' for consistency */
+		text-align: center;
+		transition: transform 0.6s;
+		transform-style: preserve-3d;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	}
 
-	.side {
+	.flip-card:hover .flip-card-inner {
+		transform: rotateY(180deg);
+	}
+
+	.flip-card-front,
+	.flip-card-back {
 		position: absolute;
-		height: 100%;
 		width: 100%;
-		background-color: orange;
-		overflow: hidden;
-		color: white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		backface-visibility: hidden; /* Improves the flip effect */
+		height: 100%;
+		backface-visibility: hidden;
 	}
 
-	.back {
-		background-color: grey;
-		transform: rotateY(180deg); /* Pre-rotate the back side */
+	.flip-card-front {
+		background-color: #bbb;
+		color: black;
+	}
+
+	.flip-card-back {
+		background-color: #2980b9;
+		transform: rotateY(180deg);
 	}
 </style>

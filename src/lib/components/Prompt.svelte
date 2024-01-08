@@ -35,6 +35,6 @@
 </script>
 
 {#if $index < 5}
-	<h2>{prompts[$index].title}</h2>
-	<p>{prompts[$index].prompt}</p>
+	<p class="font-edu text-4xl text-marker">{prompts[$index].title}</p>
+	<p class="font-edu text-2xl text-pencil">{prompts[$index].prompt}</p>
 {/if}

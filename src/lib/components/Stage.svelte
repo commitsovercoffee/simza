@@ -3,8 +3,8 @@
 	import BackwardBtn from './BackwardBtn.svelte';
 </script>
 
-<div class="flex flex-col justify-between">
-	<div class="bg-amber-200 h-96 p-4">
+<div class="px-8 py-4 rounded-xl shadow-md flex flex-col justify-between bg-card h-2/5 w-full">
+	<div>
 		<!-- space for prompts & the deck -->
 		<slot />
 	</div>

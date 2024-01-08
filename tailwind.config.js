@@ -5,14 +5,17 @@ export default {
 		extend: {
 			fontFamily: {
 				contrail: "'Contrail One', sans-serif ",
-				caveat: "'Caveat Variable', sans-serif "
+				caveat: "'Caveat Variable', sans-serif ",
+				edu: "'Edu TAS Beginner Variable',sans-serif"
 			},
 
 			colors: {
-				darkest: '#0F1035',
-				darker: '#365486',
-				normal: '#7FC7D9',
-				light: '#DCF2F1'
+				marker: '#1e2825',
+				pencil: '#b47441',
+				card: '#fff3d9',
+				canvas: '#d3cbb4',
+				unpressed: '#d2b475',
+				pressed: '#a4a890'
 			}
 		}
 	},
